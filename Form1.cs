@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsSimpleCalculator
@@ -32,7 +25,7 @@ namespace WindowsFormsSimpleCalculator
             n2 = Convert.ToInt32(input);
 
             // addition
-            result = Program.add(n1, n2);
+            result = Calculator.add(n1, n2);
 
             // output the result by converting int to string
             this.textBoxResult.Text = Convert.ToString(result);
@@ -58,7 +51,7 @@ namespace WindowsFormsSimpleCalculator
             n2 = Convert.ToInt32(input);
 
             // subtraction
-            result = Program.subtract(n1, n2);
+            result = Calculator.subtract(n1, n2);
 
             // output the result by converting int to string
             this.textBoxResult.Text = Convert.ToString(result);
@@ -79,7 +72,7 @@ namespace WindowsFormsSimpleCalculator
             n2 = Convert.ToInt32(input);
 
             // multiplication
-            result = Program.multiply(n1, n2);
+            result = Calculator.multiply(n1, n2);
 
             // output the result by converting int to string
             this.textBoxResult.Text = Convert.ToString(result);
@@ -102,7 +95,7 @@ namespace WindowsFormsSimpleCalculator
             // division
             if (n2 != 0)
             {
-                result = Program.divide(n1, n2);
+                result = Calculator.divide(n1, n2);
 
                 // output the result by converting int to string
                 this.textBoxResult.Text = Convert.ToString(result);
@@ -110,6 +103,27 @@ namespace WindowsFormsSimpleCalculator
             {
                 this.textBoxResult.Text = "Error, cannot divide by 0";
             }
+        }
+
+        private void buttonMod_Click(object sender, EventArgs e)
+        {
+            // declare variables
+            string input;
+            int n1, n2, result;
+
+            // get string input from user and convert it int
+            // pass theses values to n1 and n2
+            input = this.textBoxNumber1.Text;
+            n1 = Convert.ToInt32(input);
+
+            input = this.textBoxNumber2.Text;
+            n2 = Convert.ToInt32(input);
+
+            // multiplication
+            result = Calculator.modulos(n1, n2);
+
+            // output the result by converting int to string
+            this.textBoxResult.Text = Convert.ToString(result);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -126,5 +140,6 @@ namespace WindowsFormsSimpleCalculator
             MessageBox.Show("Do you want to exit the application?\n\tIf yes, click OK", "Easy Calculator - Version 01");
             this.Close();
         }
+
     }
 }
